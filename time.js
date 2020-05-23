@@ -2,7 +2,7 @@ let fs = require("fs");
 let shift = fs.readFileSync("conf", "utf8");
 
 const http = require('http');
-const port = 3000;
+const port = 123;
 
 const requestHandler = (request, response) => {
 	let time = new Date(Date.now() + shift * 1000);
