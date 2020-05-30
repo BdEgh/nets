@@ -39,9 +39,9 @@ async function checkPortStatus (port) {
 
 let args = process.argv.slice(2);
 let from = 1, to = 65535;
-if (Number.isInteger(args[0] * 1) && Number.isInteger(args[1] * 1) && args[0] <= args[1]) {
-	from = args[0];
-	to = args[1];
+if (Number.isInteger(args[0] * 1) && Number.isInteger(args[1] * 1) && args[0] * 1 <= args[1] * 1) {
+	from = args[0] * 1;
+	to = args[1] * 1;
 }
 else
 	console.log("Incorrect port input. Checking default range.");
