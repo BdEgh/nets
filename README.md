@@ -12,3 +12,8 @@ Usage example: node vkapi.js 56719936 5898e077203ddc77c*************************
 time.js:
 Time server. Requires "conf" file with integer number of shift.
 Usage example: node time.js
+
+port.js:
+Checking ports in given range on specified host. Uses three arguments: [port from] [port to] [address].
+This script using net.  Type: "npm install net" before using it.
+Usage example: node port.js 440 445 8.8.8.8
