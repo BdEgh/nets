@@ -14,18 +14,18 @@ namespace DNS.Ser
         public Serializer()
         {
             serializeSettings = new JsonSerializerSettings();
-            serializeSettings.TypeNameHandling = TypeNameHandling.All;
             serializeSettings.Converters.Add(new IPAddressConverter());
             serializeSettings.Converters.Add(new IPEndPointConverter());
             serializeSettings.Converters.Add(new DnsDomainNameConverter());
+            serializeSettings.TypeNameHandling = TypeNameHandling.All;
             serializeSettings.Formatting = Formatting.Indented;
 
         }
 
-        public void Save(HashSet<ResourceRecord> info)
+        public void Save(ResourceRecord[] info)
         {
             using (var output = new StreamWriter(Path.Combine(Directory.GetCurrentDirectory(), "Settings.json")))
-                output.Write(JsonConvert.SerializeObject(info.ToArray(), serializeSettings));
+                output.Write(JsonConvert.SerializeObject(info, serializeSettings));
         }
 
         public  void Load(DnsServer server)
